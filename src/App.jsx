@@ -43,6 +43,26 @@ const ValidateEmail = () => {
   );
 };
 
+const CalculateSquare = () => {
+  const [numberInput, setNumberInput] = useState();
+  const [squaredValue, setSquaredValue] = useState();
+  const clickHandler = () => {
+    const squareValue = numberInput * numberInput;
+    setSquaredValue(squareValue);
+  };
+  return (
+    <div>
+      <label for="numberInput">Enter a number: </label>
+      <input
+        id="numberInput"
+        onChange={(event) => setNumberInput(event.target.value)}
+      />
+      <button onClick={clickHandler}>Calculate Square</button>
+      {squaredValue && <p>{squaredValue}</p>}
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <main>
@@ -50,6 +70,9 @@ export default function App() {
       <br />
       <br />
       <ValidateEmail />
+      <br />
+      <br />
+      <CalculateSquare />
     </main>
   );
 }
